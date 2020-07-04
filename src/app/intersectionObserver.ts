@@ -6,7 +6,7 @@ export function inView(
   element: Element,
   options: IntersectionObserverInit = {
     root: null,
-    threshold: 0.5,
+    threshold: 0.5
   }
 ): Observable<boolean> {
   return new Observable((subscriber) => {

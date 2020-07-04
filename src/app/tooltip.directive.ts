@@ -1,4 +1,11 @@
-import { Directive, Input, ElementRef, NgZone, AfterViewInit, OnDestroy } from '@angular/core';
+import {
+  Directive,
+  Input,
+  ElementRef,
+  NgZone,
+  AfterViewInit,
+  OnDestroy
+} from '@angular/core';
 import tippy, { Instance } from 'tippy.js';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -26,10 +33,7 @@ export class TooltipDirective implements AfterViewInit, OnDestroy {
     }
   }
 
-  constructor(
-    private host: ElementRef<Element>,
-    private zone: NgZone
-  ) { }
+  constructor(private host: ElementRef<Element>, private zone: NgZone) {}
 
   ngAfterViewInit(): void {
     inView(this.host.nativeElement)
@@ -46,11 +50,10 @@ export class TooltipDirective implements AfterViewInit, OnDestroy {
           this.instance.destroy();
           this.instance = null;
         }
-    });
+      });
   }
 
   ngOnDestroy(): void {
     this.destroy.next();
   }
-
 }
